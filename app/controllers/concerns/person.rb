@@ -3,26 +3,34 @@ class Person
 
   def initialize(name, age)
     @name = name
-    @age = age
+    @age = age.to_i
   end
 
   def nickname
     # YOUR IMPLEMENTATION HERE
-    'nickname'
+    @name.nil? ? nil : @name[0,4]
   end
 
   def birth_year
     # YOUR IMPLEMENTATION HERE
-    1990
+    Date.current.year - @age
   end
 
   def introduction
     # YOUR IMPLEMENTATION HERE
-    'introduce'
+    return "My name is #{name}. My age is #{age}."
   end
 
   def fib_number
     # YOUR IMPLMENTATION HERE
-    0
+    count = 0
+    a = 0
+    b = 1
+    while count < @age do
+      a, b = b, a + b
+      count += 1
+    end
+    return a
   end
+
 end
